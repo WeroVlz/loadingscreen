@@ -1,38 +1,122 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lato');
+
+body{
+  background: #FCEDDA;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Lato', monospace;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.loader{
+  height: 20px;
+  width: 250px;
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.loading-dot{
+  animation: dot-loader ease-in-out 3s infinite;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  background-color: #B85042;
+  position: absolute;
+  
+}
+
+.loading-dot:first-child{
+  background-color: #FAB8BA;
+  animation-delay: 0.5s;
+}
+
+.loading-dot:nth-child(2) {
+  background-color: #EDA39F;
+  animation-delay: 0.4s;
+}
+
+/* CSS for :nth-child(3) of .loader--dot */
+.loading-dot:nth-child(3) {
+  background-color: #E08A85;
+  animation-delay: 0.3s;
+}
+
+/* CSS for :nth-child(4) of .loader--dot */
+.loading-dot:nth-child(4) {
+  background-color: #D3776E;
+  animation-delay: 0.2s;
+}
+
+/* CSS for :nth-child(5) of .loader--dot */
+.loading-dot:nth-child(5) {
+  background-color: #C26458;
+  animation-delay: 0.1s;
+}
+
+/* CSS for :nth-child(6) of .loader--dot */
+.loading-dot:nth-child(6) {
+  background-color: #B85042;
+  animation-delay: 0s;
+}
+
+.loader .loading-text{
+  position: absolute;
+  color: black;
+  font-weight: bold;
   font-size: calc(10px + 2vmin);
-  color: white;
+  top: 200%;
+  left: 0;
+  right: 0;
+  width: 4rem;
+  margin: auto;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.loading-text::after{
+  content: "loading";
+  animation: text-loader 3s infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes dot-loader {
+  15% {
+    transform: translateX(0);
   }
-  to {
-    transform: rotate(360deg);
+  
+  45% {
+    transform: translateX(calc(250px - 20px)); /* Use the appropriate values */
+  }
+
+  65% {
+    transform: translateX(calc(250px - 20px)); /* Use the appropriate values */
+  }
+  
+  95% {
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes text-loader {
+  0% {
+    content: "loading";
+  }
+  
+  25% {
+    content: "loading.";
+  }
+  
+  50% {
+    content: "loading..";
+  }
+  
+  75% {
+    content: "loading...";
   }
 }
